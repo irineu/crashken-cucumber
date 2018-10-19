@@ -2,10 +2,6 @@ const assert = require('assert');
 const { Given, When, Then } = require('cucumber');
 const crashkenUtil = require('../../util/crashkenUtil');
 
-function isItFriday(today) {
-  return 'Nope';
-}
-
 Given('I logIn', function() {
 	return this.driver.resolve(crashkenUtil.report.start('Fazer Login'))
 	.elementById('banco.devicelab.com.br.banco:id/main_button_login').click()

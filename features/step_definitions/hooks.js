@@ -4,12 +4,12 @@ const crashkenUtil = require('../../util/crashkenUtil');
 const config = require('../../config');
 
 
-Before(function() {
+Before(function(scenario) {
 	let world = this;
 	world.driver = wd.remote(`${config.crashkenURL}/api/mobile/wd/hub`, 'promiseChain');
 
-	let deviceId = "5721493e919d21001e7bd0fa";
-	let apiKey = "e0f407eb-cb46-4519-86b8-8cb0b8f06589";
+	let deviceId = "<Device ID>";
+	let apiKey = "<API key>";
 
 	return new Promise((resolve, reject) => {
 
@@ -35,7 +35,7 @@ Before(function() {
 			world.driver.init({
 				apiKey: apiKey,
 				deviceId: deviceId,
-				executionName: 'Demo - Cucumber',
+				executionName: scenario.pickle.name,
 				token: token,
 
 				appPackage: 'banco.devicelab.com.br.banco',
@@ -55,7 +55,7 @@ After(function(scenario) {
 	if(!passed){
 		cause = scenario.result.exception.message
 	}
-	
+
 	return this.driver.resolve(crashkenUtil.report.quit(passed, cause))
 	.quit();
 })
