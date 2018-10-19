@@ -1,0 +1,17 @@
+{
+  "name": "crashken-cucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cucumber": "^5.0.2"
+  },
+  "dependencies": {
+    "wd": "^1.11.0"
+  }
+}
